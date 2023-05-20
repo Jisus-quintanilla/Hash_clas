@@ -1,0 +1,33 @@
+//crea una clase
+class HashTable {
+
+
+    constructor(size){
+        this.data = new Array(size);
+    }
+
+    //Función que va a jenerar el Hash
+    hashMetod(key){
+        let hash = 0;
+        for (let i=0; i<key.lengh; i++){
+            hash +=(key.charCodeAt(i) * i) % this.data.lengh;
+        }
+        return hash % this.data.lengh;
+    }
+
+
+    set(key, value){
+
+        const address= this.hashMetod(key);
+        if(this.data(address)){
+            this.data(address)=[];
+        }
+        this.data(address).push(key, value);
+        return this.data;
+    }
+}
+
+
+const myHashTable = new HashTable(50);
+
+myHashTable.set("maria",1979);
